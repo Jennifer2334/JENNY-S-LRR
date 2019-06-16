@@ -113,6 +113,7 @@ class PortalController extends Controller
      */
     public function destroy(Portal $portal)
     {
-        //
+        $portal->delete();
+        return redirect()->route('portals.index');
     }
 }

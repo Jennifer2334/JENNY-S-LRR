@@ -77,7 +77,7 @@
         <div class="contact">
         	<div class="container">
 				<h2 class="section-heading">Contact Us</h2>
-				<p><span class="glyphicon glyphicon-earphone"></span><br> +86(131)000000</p>
+				<p><span class="glyphicon glyphicon-earphone"></span><br> +86(131)22250416</p>
 				<p><span class="glyphicon glyphicon-envelope"></span><br> admin@zjnu.com</p>
         	</div>
         </div>

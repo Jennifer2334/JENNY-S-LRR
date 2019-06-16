@@ -16,7 +16,7 @@
 
                     This is the index page for Portal
                     <ul>
-                      <li><a href="{{ url('/') }}">Home</a></li>
+                      <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('portals/create') }}">Create New Portal</a></li>
                     </ul>
 
@@ -27,6 +27,7 @@
                         <th>Course Code</th>
                         <th>Semester</th>
                         <th>Upload Report</th>
+                        <th>Controls</th>
                       </thead>
                       <tbody>
                         @foreach ($portals as $key => $portal)
@@ -36,6 +37,15 @@
                             <td>{{ $portal->code }}</td>
                             <td>{{ $portal->semester }}</td>
                             <td><a href="{{ url('portals', $portal->id) }}">Upload</a></td>
+                            <td>
+                                <form action="{{ route('portals.destroy', ['portal' => $portal]) }}" method="POST">
+                                    @method('DELETE')
+                        
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                        
+                                    @csrf
+                                </form>
+                            </td>
                           </tr>
                         @endforeach
                       </tbody>

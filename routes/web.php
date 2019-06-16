@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('reports/{report}', 'ReportController@destroy')->name('reports.destroy');
+Route::post('portals/{portal}', 'PortalController@destroy')->name('portals.destroy');;
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 

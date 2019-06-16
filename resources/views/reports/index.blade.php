@@ -16,7 +16,7 @@
 
                     This is the index page for Report
                     <ul>
-                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/home') }}">Home</a></li>
                     </ul>
 
                     <table class="table display nowrap table-striped table-bordered table-hover">
@@ -24,8 +24,8 @@
                         <th>#</th>
                         <th>Report Name</th>
                         <th>File</th>
-                        <th></th>
-                        <th></th>
+                        <th>Downloads</th>
+                        <th>Controls</th>
                       </thead>
                       <tbody>
                         @foreach ($reports as $key => $report)
@@ -34,7 +34,15 @@
                             <td>{{ $report->name }}</td>
                             <td>{{ $report->file }}</td>
                             <td><a href="{{ asset('uploads/'.$report->file) }}">Download</a></td>
-                            <td></td>
+                            <td>
+                              <form action="{{ route('reports.destroy', ['report' => $report]) }}" method="POST">
+                                @method('DELETE')
+                    
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                  
+                                @csrf
+                            </form>
+                            </td>
                           </tr>
                         @endforeach
                       </tbody>
